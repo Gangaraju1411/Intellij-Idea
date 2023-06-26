@@ -31,8 +31,18 @@ public class EmployeeController {
 		return ResponseEntity.ok(updateEmployee);
 	}
 
-	@GetMapping("/employee/getAll/{instId}")
+	/*@GetMapping("/employee/getAll/{instId}")
 	public ResponseEntity<List<EmployeeProjection>> updateEmployee(@PathVariable("instId") Integer instituteId) {
+		List<EmployeeProjection> allEmployees =  empService.getAllEmployees(instituteId);
+
+
+		return ResponseEntity.ok(allEmployees);
+	}*/
+
+	@GetMapping("/employee/getAll/{instId}/{empId}")
+	public ResponseEntity<List<EmployeeProjection>> updateEmployee(
+			@PathVariable("instId") Integer instituteId){
+
 		List<EmployeeProjection> allEmployees =  empService.getAllEmployees(instituteId);
 
 

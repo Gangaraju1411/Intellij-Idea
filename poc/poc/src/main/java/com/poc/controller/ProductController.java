@@ -42,6 +42,7 @@ public class ProductController {
 
 	@PostMapping("/search")
 	public ResponseEntity<Page<ProductEntity>> search (@RequestBody SearchRequest search,
+
 	@RequestParam(defaultValue = "0") int page,
 	@RequestParam(defaultValue = "10") int size,
 	@RequestParam(defaultValue = "id,asc") String[] sort)

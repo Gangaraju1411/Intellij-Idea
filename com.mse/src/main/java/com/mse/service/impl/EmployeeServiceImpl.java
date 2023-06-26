@@ -74,12 +74,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	
 		Optional<InstituteEntity> findById2 = instrepo.findById(instituteId);
-		
+
 		if(findById2.isPresent()) {
 		Optional<EmployeeEntity> findById = emprepo.findById(employeeId);
 		if (findById.isPresent() && findById.get().getId() != null) {
-			
-		return 	pf.createNullableProjection(EmployeeProjection.class,findById.get());
+			EmployeeEntity save = emprepo.save(findById.get());
+			return 	pf.createNullableProjection(EmployeeProjection.class,save);
 
 			/*	EmployeeEntity employeeEntity = findById.get();
 				BeanUtils.copyProperties(dto, employeeEntity);
